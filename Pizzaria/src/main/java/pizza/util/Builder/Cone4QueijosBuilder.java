@@ -6,6 +6,7 @@
 
 package pizza.util.Builder;
 
+import pizza.cdp.Massa;
 import pizza.cdp.massa.Cone;
 import pizza.util.Fabrica.FabricaPizza4Queijos;
 
@@ -15,14 +16,27 @@ import pizza.util.Fabrica.FabricaPizza4Queijos;
  */
 public class Cone4QueijosBuilder extends PizzaBuilder {
 
-    @Override
-    public void buildMassa() {
-        this.pizza.recheio = new FabricaPizza4Queijos();
+    private Cone4QueijosBuilder() {
+        super();
+        this.buildMassa();
+        this.buildRecheio();
+    }
+    
+    public synchronized static PizzaBuilder getInstance() {
+        if(pizzaBuilder == null) {
+            pizzaBuilder = new Cone4QueijosBuilder();
+        }
+        return pizzaBuilder;
     }
 
     @Override
-    public void buildRecheio() {
+    public final void buildMassa() {
         this.pizza.massaEscolhida = new Cone();
     }
-    
+
+    @Override
+    public final void buildRecheio() {
+        this.pizza.recheio = FabricaPizza4Queijos.getInstance();
+    }
+
 }

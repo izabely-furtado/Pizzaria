@@ -6,6 +6,7 @@
 
 package pizza.util.Builder;
 
+import pizza.cdp.Massa;
 import pizza.cdp.massa.Cone;
 import pizza.util.Fabrica.FabricaPizzaMussarela;
 
@@ -15,14 +16,27 @@ import pizza.util.Fabrica.FabricaPizzaMussarela;
  */
 public class ConeMussarelaBuilder extends PizzaBuilder {
 
+    private ConeMussarelaBuilder() {
+        super();
+        this.buildMassa();
+        this.buildRecheio();
+    }
+    
+    public synchronized static PizzaBuilder getInstance() {
+        if(pizzaBuilder == null) {
+            pizzaBuilder = new ConeMussarelaBuilder();
+        }
+        return pizzaBuilder;
+    }
+    
     @Override
-    public void buildMassa() {
+    public final void buildMassa() {
         this.pizza.massaEscolhida = new Cone();
     }
 
     @Override
-    public void buildRecheio() {
-        this.pizza.recheio = new FabricaPizzaMussarela();
+    public final void buildRecheio() {
+        this.pizza.recheio = FabricaPizzaMussarela.getInstance();
     }
     
 }

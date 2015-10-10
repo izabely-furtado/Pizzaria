@@ -15,14 +15,27 @@ import pizza.util.Fabrica.FabricaPizza4Queijos;
  */
 public class Trad4QueijosBuilder extends PizzaBuilder {
 
+    private Trad4QueijosBuilder() {
+        super();
+        this.buildMassa();
+        this.buildRecheio();
+    }
+    
+    public synchronized static PizzaBuilder getInstance() {
+        if(pizzaBuilder == null) {
+            pizzaBuilder = new Trad4QueijosBuilder();
+        }
+        return pizzaBuilder;
+    }
+    
     @Override
-    public void buildMassa() {
-        this.pizza.recheio = new FabricaPizza4Queijos();
+    public final void buildMassa() {
+        this.pizza.massaEscolhida = new Tradicional();
     }
 
     @Override
-    public void buildRecheio() {
-        this.pizza.massaEscolhida = new Tradicional();
+    public final void buildRecheio() {
+        this.pizza.recheio = FabricaPizza4Queijos.getInstance();
     }
     
 }

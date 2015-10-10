@@ -23,6 +23,20 @@ import pizza.cdp.massa.*;
  */
 public class FabricaPizza implements FabricaIngredientes {
 
+    protected static FabricaPizza fabPizza;
+    protected int codMussarela;
+    protected int cod4Queijos;
+    
+    public synchronized int getCodMussarela() {
+        codMussarela = codMussarela+1;
+        return codMussarela;
+    }
+    
+    public synchronized int getCod4Queijos() {
+        cod4Queijos = cod4Queijos+1;
+        return cod4Queijos;
+    }
+    
     @Override
     public Cebola criaCebola() {
         return new Cebola();

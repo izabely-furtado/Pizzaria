@@ -37,13 +37,20 @@ public class FabricaPizza4Queijos extends FabricaPizza{
     private final Provolone queijoProvolone;
     private final Margherita queijoMargherita;
     
-    public FabricaPizza4Queijos(){
+    private FabricaPizza4Queijos(){
         this.molhoTomate = super.criaMolhoTomate();
         this.queijoMussarela = super.criaQueijoMuss();
         this.queijoGorgonzola = super.criaQueijoGorg();
         this.queijoParmesao = super.criaQueijoParm();
         this.queijoProvolone = super.criaQueijoProv();
         this.queijoMargherita = super.criaQueijoMarg();
+    }
+    
+    public synchronized static FabricaPizza getInstance() {
+        if(fabPizza == null) {
+            fabPizza = new FabricaPizza4Queijos();
+        }
+        return fabPizza;
     }
     
     public MolhoTomate getMolhoTomate() {

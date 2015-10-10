@@ -6,6 +6,7 @@
 
 package pizza.util.Builder;
 
+import pizza.cdp.Massa;
 import pizza.cdp.massa.Tradicional;
 import pizza.util.Fabrica.FabricaPizzaMussarela;
 
@@ -15,14 +16,27 @@ import pizza.util.Fabrica.FabricaPizzaMussarela;
  */
 public class TradMussarelaBuilder extends PizzaBuilder {
 
+    private TradMussarelaBuilder() {
+        super();
+        this.buildMassa();
+        this.buildRecheio();
+    }
+    
+    public synchronized static PizzaBuilder getInstance() {
+        if(pizzaBuilder == null) {
+            pizzaBuilder = new TradMussarelaBuilder();
+        }
+        return pizzaBuilder;
+    }
+    
     @Override
-    public void buildMassa() {
+    public final void buildMassa() {
         this.pizza.massaEscolhida = new Tradicional();
     }
 
     @Override
-    public void buildRecheio() {
-        this.pizza.recheio = new FabricaPizzaMussarela();
+    public final void buildRecheio() {
+        this.pizza.recheio = FabricaPizzaMussarela.getInstance();
     }
     
 }

@@ -41,70 +41,70 @@ public class PizzaTestUtil {
     public void criaCebola() {
         FabricaPizza val = new FabricaPizza();
         Cebola resultado = new Cebola();
-        assertEquals(resultado, val.criaCebola());
+        assertEquals(resultado.getNome(), val.criaCebola().getNome());
     }
     
     @Test
     public void criaMassaCone() {
         FabricaPizza val = new FabricaPizza();
         Cone resultado = new Cone();
-        assertEquals(resultado, val.criaMassaCone());
+        assertEquals(resultado.getNome(), val.criaMassaCone().getNome());
     }
         
     @Test
     public void criaMassaTrad() {
         FabricaPizza val = new FabricaPizza();
         Tradicional resultado = new Tradicional();
-        assertEquals(resultado, val.criaMassaTrad());
+        assertEquals(resultado.getNome(), val.criaMassaTrad().getNome());
     }
     
     @Test
     public void criaMolhoTomate() {
         FabricaPizza val = new FabricaPizza();
         MolhoTomate resultado = new MolhoTomate();
-        assertEquals(resultado, val.criaMolhoTomate());
+        assertEquals(resultado.getNome(), val.criaMolhoTomate().getNome());
     }
     
     @Test
     public void criaPresunto() {
         FabricaPizza val = new FabricaPizza();
         Presunto resultado = new Presunto();
-        assertEquals(resultado, val.criaPresunto());
+        assertEquals(resultado.getNome(), val.criaPresunto().getNome());
     }
     
     @Test
     public void criaQueijoGorg() {
         FabricaPizza val = new FabricaPizza();
         Gorgonzola resultado = new Gorgonzola();
-        assertEquals(resultado, val.criaQueijoGorg());
+        assertEquals(resultado.getNome(), val.criaQueijoGorg().getNome());
     }
 
     @Test
     public void criaQueijoMarg() {
         FabricaPizza val = new FabricaPizza();
         Margherita resultado = new Margherita();
-        assertEquals(resultado, val.criaQueijoMarg());
+        assertEquals(resultado.getNome(), val.criaQueijoMarg().getNome());
     }
     
     @Test
     public void criaQueijoParm() {
         FabricaPizza val = new FabricaPizza();
         Parmesao resultado = new Parmesao();
-        assertEquals(resultado, val.criaQueijoParm());
+        assertEquals(resultado.getNome(), val.criaQueijoParm().getNome());
     }
     
     @Test
     public void criaQueijoProv() {
         FabricaPizza val = new FabricaPizza();
         Provolone resultado = new Provolone();
-        assertEquals(resultado, val.criaQueijoProv());
+        assertEquals(resultado.getNome(), val.criaQueijoProv().getNome());
     }
 
     @Test
     public void criaQueijoMuss() {
         FabricaPizza val = new FabricaPizza();
         Mussarela resultado = new Mussarela();
-        assertEquals(resultado, val.criaQueijoMuss());
+        assertEquals(resultado.getNome(), val.criaQueijoMuss().getNome());
     }
 
     @AfterClass

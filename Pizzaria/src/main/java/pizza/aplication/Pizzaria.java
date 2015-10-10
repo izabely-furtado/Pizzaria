@@ -60,10 +60,10 @@ public class Pizzaria {
 
     public static PizzaBuilder escolhaPizzaCone(int opcaoRecheio) {
         if (opcaoRecheio == 1){
-            return new ConeMussarelaBuilder();
+            return ConeMussarelaBuilder.getInstance();
         }
         else if (opcaoRecheio == 2){
-            return new Cone4QueijosBuilder();
+            return Cone4QueijosBuilder.getInstance();
         }
         else {
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
@@ -74,10 +74,10 @@ public class Pizzaria {
 
     public static PizzaBuilder escolhaPizzaTradicional(int opcaoRecheio) {
         if (opcaoRecheio == 1){
-            return new TradMussarelaBuilder();
+            return TradMussarelaBuilder.getInstance();
         }
         else if (opcaoRecheio == 2){
-            return new Trad4QueijosBuilder();
+            return Trad4QueijosBuilder.getInstance();
         }
         else {
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"

@@ -33,12 +33,19 @@ public class FabricaPizzaMussarela extends FabricaPizza{
     private final Cebola cebola;
     private final Presunto presunto;
     
-    public FabricaPizzaMussarela(){
+    private FabricaPizzaMussarela(){
         this.molhoTomate = super.criaMolhoTomate();
         this.queijoMussarela = super.criaQueijoMuss();
         this.queijoGorgonzola = super.criaQueijoGorg();
         this.cebola = super.criaCebola();
         this.presunto = super.criaPresunto();
+    }
+        
+    public synchronized static FabricaPizza getInstance() {
+        if(fabPizza == null) {
+            fabPizza = new FabricaPizzaMussarela();
+        }
+        return fabPizza;
     }
     
     public MolhoTomate getMolhoTomate() {

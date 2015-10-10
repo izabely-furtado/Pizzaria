@@ -12,9 +12,34 @@ package pizza.util.Builder;
  */
 public abstract class PizzaBuilder {
     protected PizzaProduct pizza;
+    protected static PizzaBuilder pizzaBuilder;
+    protected int codCone4Queijos;
+    protected int codTrad4Queijos;
+    protected int codConeMussarela;
+    protected int codTradMussarela;
     
-    public PizzaBuilder(){
+    protected PizzaBuilder(){
         pizza = new PizzaProduct();
+    }
+    
+    public synchronized int getCodConeMussarela() {
+        codConeMussarela = codConeMussarela+1;
+        return codConeMussarela;
+    }
+    
+    public synchronized int getCodTradMussarela() {
+        codTradMussarela = codTradMussarela+1;
+        return codTradMussarela;
+    }
+    
+    public synchronized int getCodCone4Queijos() {
+        codCone4Queijos = codCone4Queijos+1;
+        return codCone4Queijos;
+    }
+    
+    public synchronized int getCodTrad4Queijos() {
+        codTrad4Queijos = codTrad4Queijos+1;
+        return codTrad4Queijos;
     }
     
     public abstract void buildMassa();

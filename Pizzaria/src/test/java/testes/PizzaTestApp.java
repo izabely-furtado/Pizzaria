@@ -35,29 +35,29 @@ public class PizzaTestApp {
     @Test
     public void escolhaPizzaCone1(){
         int val = 1;
-        PizzaBuilder resultado = new ConeMussarelaBuilder();
-        assertSame(resultado, Pizzaria.escolhaPizzaCone(val));
+        PizzaBuilder resultado = ConeMussarelaBuilder.getInstance();
+        assertEquals(resultado, Pizzaria.escolhaPizzaCone(val));
     }
     
     @Test
     public void escolhaPizzaCone2(){
         int val = 2;
-        PizzaBuilder resultado = new Cone4QueijosBuilder();
-        assertSame(resultado, Pizzaria.escolhaPizzaCone(val));
+        PizzaBuilder resultado = Cone4QueijosBuilder.getInstance();
+        assertEquals(resultado, Pizzaria.escolhaPizzaCone(val));
     }
         
     @Test
     public void escolhaPizzaTrad1(){
         int val = 1;
-        PizzaBuilder resultado = new TradMussarelaBuilder();
-        assertSame(resultado, Pizzaria.escolhaPizzaTradicional(val));
+        PizzaBuilder resultado = TradMussarelaBuilder.getInstance();
+        assertEquals(resultado, Pizzaria.escolhaPizzaTradicional(val));
     }
     
     @Test
     public void escolhaPizzaTrad2(){
         int val = 2;
-        PizzaBuilder resultado = new Trad4QueijosBuilder();
-        assertSame(resultado, Pizzaria.escolhaPizzaTradicional(val));
+        PizzaBuilder resultado = Trad4QueijosBuilder.getInstance();
+        assertEquals(resultado, Pizzaria.escolhaPizzaTradicional(val));
     }
      
     @AfterClass
